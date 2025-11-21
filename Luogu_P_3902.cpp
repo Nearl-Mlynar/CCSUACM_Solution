@@ -17,19 +17,11 @@ void update(int k, int v)
     while (k <= n)
     {
         t[k] += v;
-        t[k] = max(t[k], v);
         k += lowbit(k);
     }
 }
 
 int getsum(int k)
-{
-    int res = 0;
-    res = max(res, t[k]);
-    k -= lowbit(k);
-    return res;
-}
-int query(int k)
 {
     int res = 0;
     while (k > 0)
@@ -75,21 +67,6 @@ void solve()
     }
 
     cout << ans << endl;
-    n = sort_date.size();
-    int lis = 0;
-
-    for (int i = 0; i < m; i++)
-    {
-        int idx = lower_bound(sort_date.begin(), sort_date.end(), date[i]) - sort_date.begin() + 1;
-
-        int best = query(idx - 1);
-        int cur = best + 1;
-
-        update(idx, cur);
-        lis = max(lis, cur);
-    }
-
-    cout << m - lis << endl;
     return;
 }
 
@@ -102,5 +79,4 @@ signed main()
         solve();
     }
     return 0;
-}
 }
