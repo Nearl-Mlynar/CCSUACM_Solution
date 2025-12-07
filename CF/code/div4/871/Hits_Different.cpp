@@ -4,53 +4,30 @@ using namespace std;
 #define d64 long double
 #define endl '\n'
 const i64 mod = 1e9 + 7;
-const i64 N = 3e5 + 7;
+const i64 N = 1e6 + 7;
 
-int g[2000];
+long long ans[2000007];
+long long a[1500][1500] = {}, res = 1;
 
 void init()
 {
-    g[0] = 0;
-    for (int h = 1; h < 2000; h++)
+    for (int i = 1; i < 1500; i++)
     {
-        g[h] = 1LL * h * (h + 1) / 2;
-        if (g[h] > 1e6)
+        for (int j = i - 1; j >= 1; j--)
         {
-            break;
+            a[j][i - j] = a[j - 1][i - j] + a[j][i - j - 1] - a[j - 1][i - j - 1] + res * res;
+            ans[res] = a[j][i - j];
+            res++;
         }
     }
 }
+
 void solve()
 {
     i64 n;
     cin >> n;
 
-    i64 res = 0;
-
-    vector<bool> vis(1000010, false);
-    int h = 0;
-    for (int i = 1; i < 2000; i++)
-    {
-        if (g[i] >= n)
-        {
-            h = i;
-            break;
-        }
-    }
-
-    auto f = [&](auto &&f, i64 x, int new_h) -> i64
-    {
-        if (x < 1 || new_h < 1 || new_h < 1 || vis[x] || x > g[new_h] || x < g[new_h - 1] + 1)
-        {
-            return 0;
-        }
-
-        vis[x] = true;
-
-        return x * x + f(f, x - new_h, new_h - 1) + f(f, x - new_h + 1, new_h - 1);
-    };
-
-    cout << f(f, n, h) << endl;
+    cout << ans[n] << endl;
 
     return;
 }
