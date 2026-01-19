@@ -11,8 +11,6 @@ void solve()
     int n, k;
     cin >> n >> k;
 
-    int res = 0;
-
     if (k % (n - 1) == 0)
     {
         cout << k / (n - 1) * n - 1 << endl;
@@ -29,7 +27,7 @@ signed main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     int T = 1;
-    cin >> T;
+    cin >> T;                                                                       
     while (T--)
     {
         solve();
