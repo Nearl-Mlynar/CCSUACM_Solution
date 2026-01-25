@@ -11,17 +11,27 @@ void solve()
     int n;
     cin >> n;
 
-    map<int, int> mp;
-    int mx = 0;
+    int res1 = 0, res2 = 0, cnt1 = 0, cnt2 = 0;
+
     for (int i = 0; i < n; i++)
     {
-        int x;
-        cin >> x;
-        mp[x]++;
-        mx = mp[x] > mp[mx] ? x : mx;
+        int t, x, y;
+        cin >> t >> x >> y;
+
+        if (t == 1)
+        {
+            res1 += x;
+            cnt1++;
+        }
+        else
+        {
+            res2 += x;
+            cnt2++;
+        }
     }
 
-    cout << mx << endl;
+    cout << (res1 * 2 >= 10 * cnt1 ? "LIVE" : "DEAD") << endl
+         << (res2 * 2 >= 10 * cnt2 ? "LIVE" : "DEAD") << endl;
     return;
 }
 
