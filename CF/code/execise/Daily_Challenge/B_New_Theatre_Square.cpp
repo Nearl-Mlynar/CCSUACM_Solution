@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define i64 long long
 #define d64 long double
@@ -36,7 +36,7 @@ void solve()
         }
     }
     cout << ans << endl;
-    return ;
+    return;
 }
 
 signed main()
@@ -46,7 +46,8 @@ signed main()
     cout.tie(0);
     int T = 1;
     cin >> T;
-    while (T--) {
+    while (T--)
+    {
         solve();
     }
     return 0;
