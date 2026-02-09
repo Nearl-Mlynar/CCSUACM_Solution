@@ -11,27 +11,35 @@ void solve()
     int n;
     cin >> n;
 
-    int res1 = 0, res2 = 0, cnt1 = 0, cnt2 = 0;
+    string a, b;
+    cin >> a >> b;
 
     for (int i = 0; i < n; i++)
     {
-        int t, x, y;
-        cin >> t >> x >> y;
-
-        if (t == 1)
+        if (a[i] == '1' || a[i] == 'I')
         {
-            res1 += x;
-            cnt1++;
+            a[i] = 'l';
         }
-        else
+        if (b[i] == '1' || b[i] == 'I')
         {
-            res2 += x;
-            cnt2++;
+            b[i] = 'l';
+        }
+        if (a[i] == '0')
+        {
+            a[i] = 'O';
+        }
+        if (b[i] == '0')
+        {
+            b[i] = 'O';
+        }
+        if (a[i] != b[i])
+        {
+            cout << "NO" << endl;
+            return;
         }
     }
 
-    cout << (res1 * 2 >= 10 * cnt1 ? "LIVE" : "DEAD") << endl
-         << (res2 * 2 >= 10 * cnt2 ? "LIVE" : "DEAD") << endl;
+    cout << "YES" << endl;
     return;
 }
 
@@ -41,7 +49,7 @@ signed main()
     cin.tie(nullptr);
     cout.tie(0);
     int T = 1;
-    // cin >> T;
+    cin >> T;
     while (T--)
     {
         solve();
