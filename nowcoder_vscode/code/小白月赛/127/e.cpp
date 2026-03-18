@@ -3,10 +3,10 @@ using namespace std;
 #define i64 long long
 #define endl '\n'
 const i64 mod = 998244353;
-const int MAXN = 2e5 + 5;
-vector<int> g[MAXN];
-int d[MAXN], siz[MAXN];
-i64 sum[MAXN];
+const int N = 2e5 + 5;
+vector<int> g[N];
+int d[N], siz[N];
+i64 sum[N];
 
 void solve()
 {

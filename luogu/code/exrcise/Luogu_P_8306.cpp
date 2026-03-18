@@ -1,10 +1,10 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
 
-const int MAXN = 1e6;
-int trie[MAXN][64], cnt;
-int pass[MAXN];
+const int N = 1e6;
+int trie[N][64], cnt;
+int pass[N];
 int hashs[256];
 
 void insert(string &s)
@@ -16,7 +16,7 @@ void insert(string &s)
     for (int i = 0; i < sz; i++)
     {
         int c = hashs[(int)s[i]];
-        if(!trie[p][c])
+        if (!trie[p][c])
         {
             trie[p][c] = ++cnt;
         }
@@ -47,8 +47,8 @@ void clear()
 {
     for (int i = 0; i <= cnt; i++)
     {
-        memset(trie[i], 0, sizeof(trie[i])); 
-        pass[i] = 0;              
+        memset(trie[i], 0, sizeof(trie[i]));
+        pass[i] = 0;
     }
     cnt = 0;
 }
@@ -85,7 +85,7 @@ void solve()
         insert(s);
     }
 
-    while(q--)
+    while (q--)
     {
         cin >> s;
         cout << serch(s) << endl;
@@ -101,7 +101,8 @@ signed main()
     cin.tie(nullptr);
     int T = 1;
     cin >> T;
-    while (T--) {
+    while (T--)
+    {
         solve();
     }
     return 0;

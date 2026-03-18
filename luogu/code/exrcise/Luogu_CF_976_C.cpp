@@ -2,10 +2,10 @@
 using namespace std;
 #define endl '\n'
 
-const int MAXN = 3e5 + 5;
+const int N = 3e5 + 5;
 int n;
 
-int t[MAXN];
+int t[N];
 
 int lowbit(int x)
 {
@@ -49,7 +49,8 @@ void solve()
         date[i] = r;
     }
 
-    sort(d.begin(), d.end(), [&](const tuple<int, int, int> &a, const tuple<int, int, int> &b){
+    sort(d.begin(), d.end(), [&](const tuple<int, int, int> &a, const tuple<int, int, int> &b)
+         {
         auto &[l1, r1, i1] = a;
         auto &[l2, r2, i2] = b;
         
@@ -58,8 +59,7 @@ void solve()
             return l1 < l2;
         }
 
-        return r1 > r2; 
-    });
+        return r1 > r2; });
 
     sort(date.begin(), date.end());
     date.erase(unique(date.begin(), date.end()), date.end());

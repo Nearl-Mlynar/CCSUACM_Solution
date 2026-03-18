@@ -2,8 +2,8 @@
 using namespace std;
 #define endl '\n'
 
-const int MAXN = 1e5;
-int trie[MAXN][26], cnt = 1;
+const int N = 1e5;
+int trie[N][26], cnt = 1;
 
 void insert(string &s)
 {

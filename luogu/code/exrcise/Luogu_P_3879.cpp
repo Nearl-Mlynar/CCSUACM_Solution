@@ -2,9 +2,9 @@
 using namespace std;
 #define endl '\n'
 
-const int MAXN = 5e3;
-int trie[1005][MAXN][26], cnt = 1;
-int pass[1005][MAXN], ed[1005][MAXN];
+const int N = 5e3;
+int trie[1005][N][26], cnt = 1;
+int pass[1005][N], ed[1005][N];
 
 void insert(string s, int k)
 {

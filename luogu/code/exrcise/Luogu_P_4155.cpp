@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAXN = 200001;
+const int N = 200001;
 const int LIMIT = 21;
 
 int powerVal;
-int lineArr[MAXN << 1][3];
-int stjump[MAXN << 1][LIMIT];
-int ansArr[MAXN];
+int lineArr[N << 1][3];
+int stjump[N << 1][LIMIT];
+int ansArr[N];
 int n, m;
 
-int logv[MAXN * 2 + 5];
+int logv[N * 2 + 5];
 
 void preLog(int limit)
 {

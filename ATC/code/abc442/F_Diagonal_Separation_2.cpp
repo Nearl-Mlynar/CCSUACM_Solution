@@ -7,8 +7,8 @@ const i64 mod = 1e9 + 7;
 const i64 N = 3e5 + 7;
 
 int n;
-const int MAXN = (1 << 12) + 5;
-int t1[MAXN][MAXN];
+const int N = (1 << 12) + 5;
+int t1[N][N];
 
 int lowbit(int x)
 {

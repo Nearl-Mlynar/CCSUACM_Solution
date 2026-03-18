@@ -3,10 +3,10 @@ using namespace std;
 #define double long double
 #define endl '\n'
 
-const int MAXN = 2e6;
-int trie[MAXN][64], cnt;
+const int N = 2e6;
+int trie[N][64], cnt;
 int len;
-int pass[MAXN], ed[MAXN], sorce[MAXN];
+int pass[N], ed[N], sorce[N];
 int hashs[256];
 
 int found(string &s)
@@ -24,8 +24,7 @@ int found(string &s)
         p = trie[p][c];
     }
 
-    
-    return (ed[p] == 0 ? 0 : sorce[p]);
+        return (ed[p] == 0 ? 0 : sorce[p]);
 }
 
 void insert(string &s, int x)
