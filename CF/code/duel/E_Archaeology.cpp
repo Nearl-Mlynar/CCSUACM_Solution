@@ -23,56 +23,47 @@ int init = []()
 {
     return 0;
 }();
-
 void solve()
 {
-    map<string, int> mp;
+    string s;
+    cin >> s;
+    int n = s.size();
 
-    int q;
-    cin >> q;
+    string res = "";
+    int l = 0, r = n - 1;
 
-    forn(i, 1, q)
+    while (r - l >= 3)
     {
-        int op, x;
-        string t;
-        cin >> op;
-
-        if (op == 1)
+        if (s[l] == s[r])
         {
-            cin >> t >> x;
-            mp[t] = x;
-            cout << "OK" << endl;
+            res += s[l];
+            l++, r--;
         }
-        else if (op == 2)
+        else if (s[l] == s[r - 1])
         {
-            cin >> t;
-            if (mp.count(t))
-            {
-                cout << mp[t] << endl;
-            }
-            else
-            {
-                cout << "Not found" << endl;
-            }
+            res += s[l];
+            l++, r -= 2;
         }
-        else if (op == 3)
+        else if (s[l + 1] == s[r])
         {
-            cin >> t;
-            if (mp.count(t))
-            {
-                mp.erase(t);
-                cout << "Deleted successfully" << endl;
-            }
-            else
-            {
-                cout << "Not found" << endl;
-            }
+            res += s[l + 1];
+            l += 2, r--;
         }
         else
         {
-            cout << mp.size() << endl;
+            res += s[l + 1];
+            l += 2, r -= 2;
         }
     }
+
+    string ans = res;
+    if (l <= r)
+    {
+        ans += s[l];
+    }
+    reverse(res.begin(), res.end());
+
+    cout << ans + res << endl;
     return;
 }
 

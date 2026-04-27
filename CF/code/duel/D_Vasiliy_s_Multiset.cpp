@@ -26,51 +26,36 @@ int init = []()
 
 void solve()
 {
-    map<string, int> mp;
-
     int q;
     cin >> q;
+    map<int, int> mp;
 
-    forn(i, 1, q)
+    while (q--)
     {
-        int op, x;
-        string t;
-        cin >> op;
+        char op;
+        int x;
+        cin >> op >> x;
 
-        if (op == 1)
+        if (op == '+')
         {
-            cin >> t >> x;
-            mp[t] = x;
-            cout << "OK" << endl;
+            mp[x]++;
         }
-        else if (op == 2)
+        else if (op == '-')
         {
-            cin >> t;
-            if (mp.count(t))
+            mp[x]--;
+            if (mp[x] == 0)
             {
-                cout << mp[t] << endl;
-            }
-            else
-            {
-                cout << "Not found" << endl;
-            }
-        }
-        else if (op == 3)
-        {
-            cin >> t;
-            if (mp.count(t))
-            {
-                mp.erase(t);
-                cout << "Deleted successfully" << endl;
-            }
-            else
-            {
-                cout << "Not found" << endl;
+                mp.erase(x);
             }
         }
         else
         {
-            cout << mp.size() << endl;
+            int mx = 0;
+            for (auto &[y, _] : mp)
+            {
+                mx = max(mx, x ^ y);
+            }
+            cout << mx << endl;
         }
     }
     return;
