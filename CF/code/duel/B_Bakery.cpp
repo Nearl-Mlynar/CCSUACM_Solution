@@ -57,7 +57,7 @@ void solve()
             int x;
             cin >> x;
             dis[x] = 0;
-            q.emplace(0, x);
+            q.push(0, x);
         }
     }
     else
@@ -81,7 +81,7 @@ void solve()
             if (dis[v] > d + w)
             {
                 dis[v] = d + w;
-                q.emplace(dis[v], v);
+                q.push(dis[v], v);
             }
         }
     }
